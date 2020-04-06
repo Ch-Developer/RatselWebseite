@@ -14,6 +14,7 @@ console.log("login id:"+idName+" pass:"+idPasswort);
 if(idName==="admin"){
 if(idPasswort==="0000"){
 document.getElementById("loginGif").style.display="block";
+ 
 setTimeout(() => {  document.getElementById("aufgabe1").style.display="none"; document.getElementById("aufgabe2").style.display="block";}, 2000);
 console.log("login erfolgreich");
 }
@@ -122,26 +123,86 @@ var zeitSek = document.getElementById('zeitSek');
                 </nav>
             </div>
             <!-- NAVIGATIONS LEISE ENDEEEEEEEEEEEEEE-->
+			<br>
+			<br>
+			
+			<!-- Karte welche Timer anzeigt -->
             <main class="mdl-layout__content">
                 <div class="page-content">
                     <main class="mdl-layout__content">
-					<div id=counter style="position:absolute; right: 10px">
-							<h2 color="red">Zeit bis die Welt untergeht:</h2>
-							<div style="position:left; right 10px;">
-							<h2 class="text timer" style="color: red; position: absolute;right:80px;" id=zeitMin> 30 </h2> <h2  style="color: red;position: absolute;right:65px;" class="text timer" id="zeitDoppel">:</h2><h2  class="text timer" style="color: red;position: absolute;right:10px;" id=zeitSek>01</h2>
-                  </div>
-				  </div>
+			
                         <div class="page-content">
-                            <h1>Projekt: Enssinger Kettens&auml;genmasaker</h1>
-                            <h4>Hier haben sie die M&ouml;glichkeit unseren Escape Room Online zu spielen!</h4>
+				<div class="demo-card-wide mdl-card mdl-shadow--2dp" stlye="position:absolute; right: 10px height: 200px;">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text style="color:red;">Welcome</h2>
+  </div>
+  <div class="mdl-card__supporting-text">		
+							<h2 color="red">Zeit bis die Welt untergeht:</h2>
+						     
+							<h2 class="text timer" style="position:absolute; top:3.5vw; left:38vw;" id=zeitMin> 30 </h2> <h2 class="text timer" style="position:absolute; top:3.5vw; left:41.5vw;" id="zeitDoppel">:</h2><h2  class="text timer" style="position:absolute; top:3.5vw; left:42.5vw;"  id=zeitSek>01</h2>
+
+  <div class="mdl-card__actions mdl-card--border">
+  </div>
+  <div class="mdl-card__menu">
+  </div>
+</div>
+</div>
+<!-- Karte mit timer ENDEEEEE-->
+
+<br>
+<br>
+
+		<!-- Start -->				
+<div class="demo-card-wide mdl-card mdl-shadow--2dp" stlye="position:absolute; right: 10px">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Welcome</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+                            <h1>Top Secret Safe</h1>
 							
                             <br />
-							<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="startButton" onClick="startWebseite()" style="left: 50%;">
-  Spiel starten!
+							<h4> #StaySecure - Seien sie sich sicher dass sie alleine sind <br> bevor sie sich einlogen! </h4>
+
+</div>
+  <div class="mdl-card__actions mdl-card--border">
+   <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="startButton" onClick="startWebseite()" style="left: 50%;">
+  Login starten!
 </button>
+  </div>
+  <div class="mdl-card__menu">
+    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+    </button>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+
+<!-- Wide card with share menu button -->
+<style>
+.demo-card-wide.mdl-card {
+  width: 70vw;
+  left:20vw;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 26px;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+</style>
+
 <div id=aufgabe1 style="display:None;">
-<p>Bitte gebe jetzt deine BenutzerID ein sowie deinen PIN von dem NFC Chip </p>
-<form action="#">
+<div class="demo-card-wide mdl-card mdl-shadow--2dp" stlye="position:absolute; right: 10px">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Welcome</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+  <p>Bitte gebe jetzt deine BenutzerID ein sowie deinen PIN von dem NFC Chip </p>
+  <img src="img\secure.gif" alt="Login Gif" id="loginGif" style="display:none;">
+    <form action="#">
   <div class="mdl-textfield mdl-js-textfield">
     <input class="mdl-textfield__input" type="text" id="feld_benutzerID">
     <label class="mdl-textfield__label" >BenutzerID eingeben...</label>
@@ -152,8 +213,26 @@ var zeitSek = document.getElementById('zeitSek');
     <span class="mdl-textfield__error">Die Pin besteht aus Zahlen!</span>
   </div>
 </form>
-	<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="loginButton" onClick="btn_login_click()" style="left: 50%;">Login </button>
-	<img src="img\secure.gif" alt="Login Gif" id="loginGif" style="display:none;">
+	
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onClick="btn_login_click()">
+      Login
+    </a>
+  </div>
+  <div class="mdl-card__menu">
+    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+      <i class="material-icons">share</i>
+    </button>
+  </div>
+</div>
+
+
+
+
+
+
+
 	</div>
 <div id=aufgabe2 style="display:none">
 
