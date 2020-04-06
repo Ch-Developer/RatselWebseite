@@ -1,5 +1,86 @@
 <!DOCTYPE html>
 <html>
+<script>
+function startWebseite(){
+document.getElementById("startButton").style.display="none";
+document.getElementById("aufgabe1").style.display="block";
+var intervalID = window.setInterval(sekCaller, 1000);
+}
+function btn_login_click(){
+console.log("login wird getestet");
+var idName = document.getElementById('feld_benutzerID').value;
+var idPasswort = document.getElementById('feld_benutzerPass').value;
+console.log("login id:"+idName+" pass:"+idPasswort);
+if(idName==="admin"){
+if(idPasswort==="0000"){
+document.getElementById("loginGif").style.display="block";
+setTimeout(() => {  document.getElementById("aufgabe1").style.display="none"; window.open("networkError.html");}, 2000);
+console.log("login erfolgreich");
+}
+else{
+window.alert("Falsche Login Daten!");
+}
+}
+else{
+window.alert("Falsche Login Daten!");
+}
+}
+function sekCaller() {
+var zeitSek = document.getElementById('zeitSek');
+	var text = zeitSek.innerText || zeitSek.textContent;          	
+	console.log("Der Wert gerade an Sekunden: " + text);
+	var zahl = parseFloat(text);
+	if(zahl==0){
+		//Sekunden auf 0
+		
+		var zeitMin = document.getElementById('zeitMin');
+		var text = zeitMin.innerText || zeitMin.textContent;          	
+		console.log("Der Wert gerade in Minuten: " + text);
+		var zahlMin = parseFloat(text);
+		zahlMin = zahlMin -1;
+		if(zahlMin==-1){
+			//Sekunden und Min auf 0
+		//	navigator.vibrate(100);
+			
+			
+		
+			var timerMin = localStorage.getItem('timerMin');
+			console.log("Der Wert: " +timerMin);
+			if(timerMin==null){
+				console.log("Es gab nichts");
+			    zeitSek.innerHTML = "59";
+			    zeitMin.innerHTML = "59";
+			  
+			}
+			else{
+				console.log("Es gab gespeicherte Variablen");
+				zeitMin.innerHTML = timerMin-1;
+				zeitSek.innerHTML = 59;
+			}
+			 //Timer = 0
+			
+		}
+		else{
+			if(zahlMin<=9){
+				zahlMin="0"+zahlMin;
+			}
+		zeitMin.innerHTML = zahlMin;
+		zeitSek.innerHTML = "59";
+		}
+	}
+	else{
+		var textSek = zahl-1;
+		if(textSek<=9){
+			textSek="0"+textSek;
+		}
+    	zeitSek.innerHTML = textSek; 
+	}
+	
+}
+</script>
+
+
+
 <head>
     <title>Digital Escape Room</title>
     <!-- materialDeign Import: -->
@@ -16,12 +97,12 @@
         <header class="mdl-layout__header">
             <div class="mdl-layout__header-row">
                 <!-- Title -->
-                <span class="mdl-layout-title">Digital Escape Room</span>
+                <span class="mdl-layout-title">Ensinger Kettens&auml;genmassaker</span>
                 <div class="mdl-layout-spacer"></div>
                 <!-- Navigation. Wird versteckt auf kleinen Displays, ist die große oben, nur die extra Seiten aufgelistet da großes Display alles anzeigt -->
                 <nav class="mdl-navigation mdl-layout--large-screen-only">
-             <a class="mdl-navigation__link" href="index.html">Home</a>
-                    <a class="mdl-navigation__link" href="index.html#anleitung">Anleitung</a>
+                    <a class="mdl-navigation__link" href="index.html">Home</a>
+                    <a class="mdl-navigation__link" href="anleitung.html">Anleitung</a>
                     <a class="mdl-navigation__link" href="impressum.html">Impressum</a>
                 </nav>
             </div>
@@ -29,10 +110,10 @@
         <body>
             <!-- Navigation. Hauptsächlich für kleine Geräte gedacht ist die ausklapbare, da auf kleinere Geräte alles aufgelistet -->
             <div class="mdl-layout__drawer">
-                <span class="mdl-layout-title">Digital Escape Room</span>
+                <span class="mdl-layout-title">Ensinger Kettens&auml;genmassaker</span>
                 <nav class="mdl-navigation">
                     <a class="mdl-navigation__link" href="index.html">Home</a>
-                    <a class="mdl-navigation__link" href="index.html#anleitung">Anleitung</a>
+                    <a class="mdl-navigation__link" href="anleitung.html">Anleitung</a>
                     <a class="mdl-navigation__link" href="impressum.html">Impressum</a>
                 </nav>
             </div>
@@ -40,12 +121,42 @@
             <main class="mdl-layout__content">
                 <div class="page-content">
                     <main class="mdl-layout__content">
+					<div id=counter style="position:absolute; right: 10px">
+							<h2 color="red">Zeit bis die Welt untergeht:</h2>
+							<div style="position:left; right 10px;">
+							<h2 class="text timer" style="color: red; position: absolute;right:80px;" id=zeitMin> 30 </h2> <h2  style="color: red;position: absolute;right:65px;" class="text timer" id="zeitDoppel">:</h2><h2  class="text timer" style="color: red;position: absolute;right:10px;" id=zeitSek>01</h2>
+                  </div>
+				  </div>
                         <div class="page-content">
-                            <h1>Projekt: Enssinger Kettensägenmasaker</h1>
-                            <h4>Hier haben sie die Möglichkeit unseren Escape Room Online zu spielen!</h4>
-                   
+                            <h1>Projekt: Enssinger Kettens&auml;genmasaker</h1>
+                            <h4>Hier haben sie die M&ouml;glichkeit unseren Escape Room Online zu spielen!</h4>
+							
                             <br />
-							 <button type="button" id="berechnen">Spiel starten</button>
+							<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="startButton" onClick="startWebseite()" style="left: 50%;">
+  Spiel starten!
+</button>
+<div id=aufgabe1 style="display:None;">
+<p>Bitte gebe jetzt deine BenutzerID ein sowie deinen PIN von dem NFC Chip </p>
+<form action="#">
+  <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="text" id="feld_benutzerID">
+    <label class="mdl-textfield__label" >BenutzerID eingeben...</label>
+  </div>
+    <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="feld_benutzerPass">
+    <label class="mdl-textfield__label" >Pin eingeben...</label>
+    <span class="mdl-textfield__error">Die Pin besteht aus Zahlen!</span>
+  </div>
+</form>
+	<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="loginButton" onClick="btn_login_click()" style="left: 50%;">Login </button>
+	<img src="img\secure.gif" alt="Login Gif" id="loginGif" style="display:none;">
+	</div>
+<div id=aufgabe2 style="display: None;">
+
+
+</div>
+	
+	
 
                         </div>
                     </main>
