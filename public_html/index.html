@@ -14,7 +14,7 @@ console.log("login id:"+idName+" pass:"+idPasswort);
 if(idName==="admin"){
 if(idPasswort==="0000"){
 document.getElementById("loginGif").style.display="block";
-setTimeout(() => {  document.getElementById("aufgabe1").style.display="none"; window.open("networkError.html");}, 2000);
+setTimeout(() => {  document.getElementById("aufgabe1").style.display="none"; document.getElementById("aufgabe2").style.display="block";}, 2000);
 console.log("login erfolgreich");
 }
 else{
@@ -24,6 +24,10 @@ window.alert("Falsche Login Daten!");
 else{
 window.alert("Falsche Login Daten!");
 }
+}
+
+function btn_aufgabe2_click(){
+window.open("networkError.html","_self");
 }
 function sekCaller() {
 var zeitSek = document.getElementById('zeitSek');
@@ -151,9 +155,149 @@ var zeitSek = document.getElementById('zeitSek');
 	<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="loginButton" onClick="btn_login_click()" style="left: 50%;">Login </button>
 	<img src="img\secure.gif" alt="Login Gif" id="loginGif" style="display:none;">
 	</div>
-<div id=aufgabe2 style="display: None;">
+<div id=aufgabe2 style="display:none">
 
+<table>
+<tr>
+<td><img src="img\1280px-FDDI-optical-fiber-connector-hdr-0a.jpg" id="loginGif" width=180vw; height=180vw;></td>
+<td><img src="img\1280px-SC-optical-fiber-connector-hdr-0a.jpg" id="loginGif" width=180vw; height=180vw;></td>
+<td><img src="img\ESCON_connector.jpg" " id="loginGif" width=180vw; height=180vw;></td>
+<td><img src="img\Lwl_e2000.jpg" id="loginGif" width=180vw;height=180vw;></td>
+<td><img src="img\Lwl_mtrj.jpg" id="loginGif" width=180vw; height=180vw;></td>
+<td><img src="img\LWLLCSTECKER.jpg" id="loginGif" width=180vw; height=180vw;></td>
+<td><img src="img\TOSLINK.jpg" id="loginGif" width=180vw; height=180vw;></td>
+</tr>
+<tr>
+<td>
+<div style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
+  <select style="position:absolute;top:0px;left:0px;width:200px; height:25px;line-height:20px;margin:0;padding:0;"
+          onchange="document.getElementById('displayValue1').value=this.options[this.selectedIndex].text; document.getElementById('idValue1').value=this.options[this.selectedIndex].value;">
+    <option></option>
+    <option value="SC-Stecker<">SC-Stecker</option>
+    <option value="E-2000 Stecker">E-2000 Stecker</option>
+    <option value="ESCON-Stecker">ESCON-Stecker</option>
+	<option value="MIC(FDDI)-Stecker">MIC(FDDI)-Stecker</option>
+	<option value="C-Stecker">LC-Stecker</option>
+	<option value="MTRJ-Stecker">MTRJ-Stecker</option>
+	<option value="TOSLINK-Stecker">TOSLINK-Stecker</option>
+  </select>
+  <input type="text" name="displayValue1" id="displayValue1" 
+         placeholder="Typ ausw&auml;hlen" onfocus="this.select()"
+         style="position:absolute;top:0px;left:0px;width:183px;width:180px\9;#width:180px;height:23px; height:21px\9;#height:18px;border:1px solid #556;"  >
+  <input name="idValue" id="idValue1" type="hidden">
+  </td>
+  <td>
+<div style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
+  <select style="position:absolute;top:0px;left:0px;width:200px; height:25px;line-height:20px;margin:0;padding:0;"
+          onchange="document.getElementById('displayValue2').value=this.options[this.selectedIndex].text; document.getElementById('idValue2').value=this.options[this.selectedIndex].value;">
+    <option></option>
+    <option value="SC-Stecker<">SC-Stecker</option>
+    <option value="E-2000 Stecker">E-2000 Stecker</option>
+    <option value="ESCON-Stecker">ESCON-Stecker</option>
+	<option value="MIC(FDDI)-Stecker">MIC(FDDI)-Stecker</option>
+	<option value="C-Stecker">LC-Stecker</option>
+	<option value="MTRJ-Stecker">MTRJ-Stecker</option>
+	<option value="TOSLINK-Stecker">TOSLINK-Stecker</option>
+  </select>
+  <input type="text" name="displayValue2" id="displayValue2" 
+         placeholder="Typ ausw&auml;hlen" onfocus="this.select()"
+         style="position:absolute;top:0px;left:0px;width:183px;width:180px\9;#width:180px;height:23px; height:21px\9;#height:18px;border:1px solid #556;"  >
+  <input name="idValue" id="idValue2" type="hidden">
+  </td>
+<td>
+<div style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
+  <select style="position:absolute;top:0px;left:0px;width:200px; height:25px;line-height:20px;margin:0;padding:0;"
+          onchange="document.getElementById('displayValue3').value=this.options[this.selectedIndex].text; document.getElementById('idValue3').value=this.options[this.selectedIndex].value;">
+    <option></option>
+    <option value="SC-Stecker<">SC-Stecker</option>
+    <option value="E-2000 Stecker">E-2000 Stecker</option>
+    <option value="ESCON-Stecker">ESCON-Stecker</option>
+	<option value="MIC(FDDI)-Stecker">MIC(FDDI)-Stecker</option>
+	<option value="C-Stecker">LC-Stecker</option>
+	<option value="MTRJ-Stecker">MTRJ-Stecker</option>
+	<option value="TOSLINK-Stecker">TOSLINK-Stecker</option>
+  </select>
+  <input type="text" name="displayValue3" id="displayValue3" 
+         placeholder="Typ ausw&auml;hlen" onfocus="this.select()"
+         style="position:absolute;top:0px;left:0px;width:183px;width:180px\9;#width:180px;height:23px; height:21px\9;#height:18px;border:1px solid #556;"  >
+  <input name="idValue" id="idValue3" type="hidden">
+  </td>
+<td>
+<div style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
+  <select style="position:absolute;top:0px;left:0px;width:200px; height:25px;line-height:20px;margin:0;padding:0;"
+          onchange="document.getElementById('displayValue4').value=this.options[this.selectedIndex].text; document.getElementById('idValue4').value=this.options[this.selectedIndex].value;">
+    <option></option>
+    <option value="SC-Stecker<">SC-Stecker</option>
+    <option value="E-2000 Stecker">E-2000 Stecker</option>
+    <option value="ESCON-Stecker">ESCON-Stecker</option>
+	<option value="MIC(FDDI)-Stecker">MIC(FDDI)-Stecker</option>
+	<option value="C-Stecker">LC-Stecker</option>
+	<option value="MTRJ-Stecker">MTRJ-Stecker</option>
+	<option value="TOSLINK-Stecker">TOSLINK-Stecker</option>
+  </select>
+  <input type="text" name="displayValue4" id="displayValue4" 
+         placeholder="Typ ausw&auml;hlen" onfocus="this.select()"
+         style="position:absolute;top:0px;left:0px;width:183px;width:180px\9;#width:180px;height:23px; height:21px\9;#height:18px;border:1px solid #556;"  >
+  <input name="idValue" id="idValue4" type="hidden">
+  </td>
+  <td>
+<div style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
+  <select style="position:absolute;top:0px;left:0px;width:200px; height:25px;line-height:20px;margin:0;padding:0;"
+          onchange="document.getElementById('displayValue5').value=this.options[this.selectedIndex].text; document.getElementById('idValue5').value=this.options[this.selectedIndex].value;">
+    <option></option>
+    <option value="SC-Stecker<">SC-Stecker</option>
+    <option value="E-2000 Stecker">E-2000 Stecker</option>
+    <option value="ESCON-Stecker">ESCON-Stecker</option>
+	<option value="MIC(FDDI)-Stecker">MIC(FDDI)-Stecker</option>
+	<option value="C-Stecker">LC-Stecker</option>
+	<option value="MTRJ-Stecker">MTRJ-Stecker</option>
+	<option value="TOSLINK-Stecker">TOSLINK-Stecker</option>
+  </select>
+  <input type="text" name="displayValue5" id="displayValue5" 
+         placeholder="Typ ausw&auml;hlen" onfocus="this.select()"
+         style="position:absolute;top:0px;left:0px;width:183px;width:180px\9;#width:180px;height:23px; height:21px\9;#height:18px;border:1px solid #556;"  >
+  <input name="idValue" id="idValue5" type="hidden">
+  </td>
+  
+  <td>
+<div style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
+  <select style="position:absolute;top:0px;left:0px;width:200px; height:25px;line-height:20px;margin:0;padding:0;"
+          onchange="document.getElementById('displayValue6').value=this.options[this.selectedIndex].text; document.getElementById('idValue6').value=this.options[this.selectedIndex].value;">
+    <option></option>
+    <option value="SC-Stecker<">SC-Stecker</option>
+    <option value="E-2000 Stecker">E-2000 Stecker</option>
+    <option value="ESCON-Stecker">ESCON-Stecker</option>
+	<option value="MIC(FDDI)-Stecker">MIC(FDDI)-Stecker</option>
+	<option value="C-Stecker">LC-Stecker</option>
+	<option value="MTRJ-Stecker">MTRJ-Stecker</option>
+	<option value="TOSLINK-Stecker">TOSLINK-Stecker</option>
+  </select>
+  <input type="text" name="displayValue6" id="displayValue6" 
+         placeholder="Typ ausw&auml;hlen" onfocus="this.select()"
+         style="position:absolute;top:0px;left:0px;width:183px;width:180px\9;#width:180px;height:23px; height:21px\9;#height:18px;border:1px solid #556;"  >
+  <input name="idValue" id="idValue6" type="hidden">
+  </td>
+    <td>
+<div style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
+  <select style="position:absolute;top:0px;left:0px;width:200px; height:25px;line-height:20px;margin:0;padding:0;"
+          onchange="document.getElementById('displayValue7').value=this.options[this.selectedIndex].text; document.getElementById('idValue7').value=this.options[this.selectedIndex].value;">
+    <option></option>
+    <option value="SC-Stecker<">SC-Stecker</option>
+    <option value="E-2000 Stecker">E-2000 Stecker</option>
+    <option value="ESCON-Stecker">ESCON-Stecker</option>
+	<option value="MIC(FDDI)-Stecker">MIC(FDDI)-Stecker</option>
+	<option value="C-Stecker">LC-Stecker</option>
+	<option value="MTRJ-Stecker">MTRJ-Stecker</option>
+	<option value="TOSLINK-Stecker">TOSLINK-Stecker</option>
+  </select>
+  <input type="text" name="displayValue7" id="displayValue7" 
+         placeholder="Typ ausw&auml;hlen" onfocus="this.select()"
+         style="position:absolute;top:0px;left:0px;width:183px;width:180px\9;#width:180px;height:23px; height:21px\9;#height:18px;border:1px solid #556;"  >
+  <input name="idValue" id="idValue7" type="hidden">
+  </td>
+</table>
 
+	<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="loginButton" onClick="btn_aufgabe2_click()" style="left: 50%;">Testen</button>
 </div>
 	
 	
