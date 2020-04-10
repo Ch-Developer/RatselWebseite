@@ -1,86 +1,115 @@
 <!DOCTYPE html>
 <html>
 <script>
-function startWebseite(){
-document.getElementById("startButton").style.display="none";
-document.getElementById("aufgabe1").style.display="block";
-var intervalID = window.setInterval(sekCaller, 1000);
-}
-function btn_login_click(){
-console.log("login wird getestet");
-var idName = document.getElementById('feld_benutzerID').value;
-var idPasswort = document.getElementById('feld_benutzerPass').value;
-console.log("login id:"+idName+" pass:"+idPasswort);
-if(idName==="admin"){
-if(idPasswort==="0000"){
-document.getElementById("loginGif").style.display="block";
- 
-setTimeout(() => {  document.getElementById("aufgabe1").style.display="none"; document.getElementById("aufgabe2").style.display="block";}, 2000);
-console.log("login erfolgreich");
-}
-else{
-window.alert("Falsche Login Daten!");
-}
-}
-else{
-window.alert("Falsche Login Daten!");
-}
+function startWebseite() {
+    document.getElementById("startButton").style.display = "none";
+    document.getElementById("aufgabe1").style.display = "block";
+    var intervalID = window.setInterval(sekCaller, 1000);
 }
 
-function btn_aufgabe2_click(){
-window.open("networkError.html","_self");
+function btn_login_click() {
+    console.log("login wird getestet");
+    var idName = document.getElementById('feld_benutzerID').value;
+    var idPasswort = document.getElementById('feld_benutzerPass').value;
+    console.log("login id:" + idName + " pass:" + idPasswort);
+    if (idName === "admin") {
+        if (idPasswort === "0000") {
+            document.getElementById("loginGif").style.display = "block";
+
+            setTimeout(() => {
+                document.getElementById("aufgabe1").style.display = "none";
+                document.getElementById("aufgabe2").style.display = "block";
+            }, 2000);
+            console.log("login erfolgreich");
+        } else {
+            window.alert("Falsche Login Daten!");
+        }
+    } else {
+        window.alert("Falsche Login Daten!");
+    }
 }
+
+function btn_aufgabe2_click() {
+console.log("BUH:"+document.getElementById('idValue1').value);
+    if (document.getElementById('idValue1').value == "SC-Stecker<") {
+        if (document.getElementById('idValue2').value = "ESCON-Stecker") {
+            if (document.getElementById('idValue3').value = "E-2000 Stecker") {
+                if (document.getElementById('idValue4').value = "MTRJ-Stecker") {
+                    if (document.getElementById('idValue5').value = "C-Stecker") {
+                        if (document.getElementById('idValue6').value = "TOSLINK-Stecker") {
+                          window.open("networkError.html", "_self");
+                        } else {
+                            window.alert("Falsche Eingabe, versuchen sie es erneut!");
+                        }
+                    } else {
+                        window.alert("Falsche Eingabe, versuchen sie es erneut!");
+                    }
+                } else {
+                    window.alert("Falsche Eingabe, versuchen sie es erneut!");
+                }
+            } else {
+                window.alert("Falsche Eingabe, versuchen sie es erneut!");
+            }
+        } else {
+            window.alert("Falsche Eingabe, versuchen sie es erneut!");
+        }
+    } else {
+        window.alert("Falsche Eingabe, versuchen sie es erneut!");
+    }
+  
+
+
+    
+}
+
 function sekCaller() {
-var zeitSek = document.getElementById('zeitSek');
-	var text = zeitSek.innerText || zeitSek.textContent;          	
-	console.log("Der Wert gerade an Sekunden: " + text);
-	var zahl = parseFloat(text);
-	if(zahl==0){
-		//Sekunden auf 0
-		
-		var zeitMin = document.getElementById('zeitMin');
-		var text = zeitMin.innerText || zeitMin.textContent;          	
-		console.log("Der Wert gerade in Minuten: " + text);
-		var zahlMin = parseFloat(text);
-		zahlMin = zahlMin -1;
-		if(zahlMin==-1){
-			//Sekunden und Min auf 0
-		//	navigator.vibrate(100);
-			
-			
-		
-			var timerMin = localStorage.getItem('timerMin');
-			console.log("Der Wert: " +timerMin);
-			if(timerMin==null){
-				console.log("Es gab nichts");
-			    zeitSek.innerHTML = "59";
-			    zeitMin.innerHTML = "59";
-			  
-			}
-			else{
-				console.log("Es gab gespeicherte Variablen");
-				zeitMin.innerHTML = timerMin-1;
-				zeitSek.innerHTML = 59;
-			}
-			 //Timer = 0
-			
-		}
-		else{
-			if(zahlMin<=9){
-				zahlMin="0"+zahlMin;
-			}
-		zeitMin.innerHTML = zahlMin;
-		zeitSek.innerHTML = "59";
-		}
-	}
-	else{
-		var textSek = zahl-1;
-		if(textSek<=9){
-			textSek="0"+textSek;
-		}
-    	zeitSek.innerHTML = textSek; 
-	}
-	
+    var zeitSek = document.getElementById('zeitSek');
+    var text = zeitSek.innerText || zeitSek.textContent;
+    console.log("Der Wert gerade an Sekunden: " + text);
+    var zahl = parseFloat(text);
+    if (zahl == 0) {
+        //Sekunden auf 0
+
+        var zeitMin = document.getElementById('zeitMin');
+        var text = zeitMin.innerText || zeitMin.textContent;
+        console.log("Der Wert gerade in Minuten: " + text);
+        var zahlMin = parseFloat(text);
+        zahlMin = zahlMin - 1;
+        if (zahlMin == -1) {
+            //Sekunden und Min auf 0
+            //	navigator.vibrate(100);
+
+
+
+            var timerMin = localStorage.getItem('timerMin');
+            console.log("Der Wert: " + timerMin);
+            if (timerMin == null) {
+                console.log("Es gab nichts");
+                zeitSek.innerHTML = "59";
+                zeitMin.innerHTML = "59";
+
+            } else {
+                console.log("Es gab gespeicherte Variablen");
+                zeitMin.innerHTML = timerMin - 1;
+                zeitSek.innerHTML = 59;
+            }
+            //Timer = 0
+
+        } else {
+            if (zahlMin <= 9) {
+                zahlMin = "0" + zahlMin;
+            }
+            zeitMin.innerHTML = zahlMin;
+            zeitSek.innerHTML = "59";
+        }
+    } else {
+        var textSek = zahl - 1;
+        if (textSek <= 9) {
+            textSek = "0" + textSek;
+        }
+        zeitSek.innerHTML = textSek;
+    }
+
 }
 </script>
 
@@ -127,24 +156,30 @@ var zeitSek = document.getElementById('zeitSek');
 			<br>
 			
 			<!-- Karte welche Timer anzeigt -->
+			
             <main class="mdl-layout__content">
                 <div class="page-content">
                     <main class="mdl-layout__content">
 			
                         <div class="page-content">
+                            <div id=timerKarte>
 				<div class="demo-card-wide mdl-card mdl-shadow--2dp" stlye="position:absolute; right: 10px height: 200px;">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text style="color:red;">Welcome</h2>
   </div>
   <div class="mdl-card__supporting-text">		
 							<h2 color="red">Zeit bis die Welt untergeht:</h2>
-						     
-							<h2 class="text timer" style="position:absolute; top:3.5vw; left:38vw;" id=zeitMin> 30 </h2> <h2 class="text timer" style="position:absolute; top:3.5vw; left:41.5vw;" id="zeitDoppel">:</h2><h2  class="text timer" style="position:absolute; top:3.5vw; left:42.5vw;"  id=zeitSek>01</h2>
-
+						  <div >
+							<table><tr><td>
+							<h3 class="text timer" id=zeitMin> 30 </h3> </td><td><h3 class="text timer"  id="zeitDoppel">:</h3></td><td><h3  class="text timer"  id=zeitSek>01</h3></td>
+							</tr></table>
+							</div>
   <div class="mdl-card__actions mdl-card--border">
+ 
   </div>
   <div class="mdl-card__menu">
   </div>
+</div>
 </div>
 </div>
 <!-- Karte mit timer ENDEEEEE-->
@@ -165,9 +200,9 @@ var zeitSek = document.getElementById('zeitSek');
 
 </div>
   <div class="mdl-card__actions mdl-card--border">
-   <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="startButton" onClick="startWebseite()" style="left: 50%;">
-  Login starten!
-</button>
+<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="startButton" onClick="startWebseite()">
+      Login starten!
+    </a>
   </div>
   <div class="mdl-card__menu">
     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
@@ -182,8 +217,7 @@ var zeitSek = document.getElementById('zeitSek');
 <!-- Wide card with share menu button -->
 <style>
 .demo-card-wide.mdl-card {
-  width: 70vw;
-  left:20vw;
+  width: 100vw;
 }
 .demo-card-wide > .mdl-card__title {
   color: #fff;
@@ -191,6 +225,27 @@ var zeitSek = document.getElementById('zeitSek');
 }
 .demo-card-wide > .mdl-card__menu {
   color: #fff;
+}
+#aufgabe2mobil{
+display:block;
+}
+#aufgabe2desktop{
+display:none;
+}
+
+@media (max-resolution: 1dppx) {
+/* Erkennt dass es ein Desktop PC ist */
+.demo-card-wide.mdl-card {
+  width: 70vw;
+  left:20vw;
+}
+#aufgabe2mobil{
+display:none;
+}
+#aufgabe2desktop{
+display:block;
+}
+
 }
 </style>
 
@@ -200,7 +255,7 @@ var zeitSek = document.getElementById('zeitSek');
     <h2 class="mdl-card__title-text">Welcome</h2>
   </div>
   <div class="mdl-card__supporting-text">
-  <p>Bitte gebe jetzt deine BenutzerID ein sowie deinen PIN von dem NFC Chip </p>
+  <h4>Bitte gebe jetzt deine BenutzerID ein sowie deinen PIN von dem NFC Chip </h4>
   <img src="img\secure.gif" alt="Login Gif" id="loginGif" style="display:none;">
     <form action="#">
   <div class="mdl-textfield mdl-js-textfield">
@@ -208,7 +263,7 @@ var zeitSek = document.getElementById('zeitSek');
     <label class="mdl-textfield__label" >BenutzerID eingeben...</label>
   </div>
     <div class="mdl-textfield mdl-js-textfield">
-    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="feld_benutzerPass">
+    <input class="mdl-textfield__input" type="password" pattern="-?[0-9]*(\.[0-9]+)?" id="feld_benutzerPass">
     <label class="mdl-textfield__label" >Pin eingeben...</label>
     <span class="mdl-textfield__error">Die Pin besteht aus Zahlen!</span>
   </div>
@@ -235,16 +290,18 @@ var zeitSek = document.getElementById('zeitSek');
 
 	</div>
 <div id=aufgabe2 style="display:none">
-
+<div id=aufgabe2desktop>
+<div class="demo-card-wide mdl-card mdl-shadow--2dp" stlye="position:absolute; right: 10px">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Welcome</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+  <h4> Sicherstellung dass sie kein Bot sind (Bitte Steckertyp ausw&auml;hlen) </h4>
 <table>
 <tr>
-<td><img src="img\1280px-FDDI-optical-fiber-connector-hdr-0a.jpg" id="loginGif" width=180vw; height=180vw;></td>
 <td><img src="img\1280px-SC-optical-fiber-connector-hdr-0a.jpg" id="loginGif" width=180vw; height=180vw;></td>
 <td><img src="img\ESCON_connector.jpg" " id="loginGif" width=180vw; height=180vw;></td>
 <td><img src="img\Lwl_e2000.jpg" id="loginGif" width=180vw;height=180vw;></td>
-<td><img src="img\Lwl_mtrj.jpg" id="loginGif" width=180vw; height=180vw;></td>
-<td><img src="img\LWLLCSTECKER.jpg" id="loginGif" width=180vw; height=180vw;></td>
-<td><img src="img\TOSLINK.jpg" id="loginGif" width=180vw; height=180vw;></td>
 </tr>
 <tr>
 <td>
@@ -255,7 +312,6 @@ var zeitSek = document.getElementById('zeitSek');
     <option value="SC-Stecker<">SC-Stecker</option>
     <option value="E-2000 Stecker">E-2000 Stecker</option>
     <option value="ESCON-Stecker">ESCON-Stecker</option>
-	<option value="MIC(FDDI)-Stecker">MIC(FDDI)-Stecker</option>
 	<option value="C-Stecker">LC-Stecker</option>
 	<option value="MTRJ-Stecker">MTRJ-Stecker</option>
 	<option value="TOSLINK-Stecker">TOSLINK-Stecker</option>
@@ -273,7 +329,6 @@ var zeitSek = document.getElementById('zeitSek');
     <option value="SC-Stecker<">SC-Stecker</option>
     <option value="E-2000 Stecker">E-2000 Stecker</option>
     <option value="ESCON-Stecker">ESCON-Stecker</option>
-	<option value="MIC(FDDI)-Stecker">MIC(FDDI)-Stecker</option>
 	<option value="C-Stecker">LC-Stecker</option>
 	<option value="MTRJ-Stecker">MTRJ-Stecker</option>
 	<option value="TOSLINK-Stecker">TOSLINK-Stecker</option>
@@ -291,7 +346,6 @@ var zeitSek = document.getElementById('zeitSek');
     <option value="SC-Stecker<">SC-Stecker</option>
     <option value="E-2000 Stecker">E-2000 Stecker</option>
     <option value="ESCON-Stecker">ESCON-Stecker</option>
-	<option value="MIC(FDDI)-Stecker">MIC(FDDI)-Stecker</option>
 	<option value="C-Stecker">LC-Stecker</option>
 	<option value="MTRJ-Stecker">MTRJ-Stecker</option>
 	<option value="TOSLINK-Stecker">TOSLINK-Stecker</option>
@@ -301,6 +355,15 @@ var zeitSek = document.getElementById('zeitSek');
          style="position:absolute;top:0px;left:0px;width:183px;width:180px\9;#width:180px;height:23px; height:21px\9;#height:18px;border:1px solid #556;"  >
   <input name="idValue" id="idValue3" type="hidden">
   </td>
+
+
+<tr>
+<td><img src="img\Lwl_mtrj.jpg" id="loginGif" width=180vw; height=180vw;></td>
+<td><img src="img\LWLLCSTECKER.jpg" id="loginGif" width=180vw; height=180vw;></td>
+<td><img src="img\TOSLINK.jpg" id="loginGif" width=180vw; height=180vw;></td>
+</tr>
+<tr>
+
 <td>
 <div style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
   <select style="position:absolute;top:0px;left:0px;width:200px; height:25px;line-height:20px;margin:0;padding:0;"
@@ -309,7 +372,6 @@ var zeitSek = document.getElementById('zeitSek');
     <option value="SC-Stecker<">SC-Stecker</option>
     <option value="E-2000 Stecker">E-2000 Stecker</option>
     <option value="ESCON-Stecker">ESCON-Stecker</option>
-	<option value="MIC(FDDI)-Stecker">MIC(FDDI)-Stecker</option>
 	<option value="C-Stecker">LC-Stecker</option>
 	<option value="MTRJ-Stecker">MTRJ-Stecker</option>
 	<option value="TOSLINK-Stecker">TOSLINK-Stecker</option>
@@ -327,7 +389,6 @@ var zeitSek = document.getElementById('zeitSek');
     <option value="SC-Stecker<">SC-Stecker</option>
     <option value="E-2000 Stecker">E-2000 Stecker</option>
     <option value="ESCON-Stecker">ESCON-Stecker</option>
-	<option value="MIC(FDDI)-Stecker">MIC(FDDI)-Stecker</option>
 	<option value="C-Stecker">LC-Stecker</option>
 	<option value="MTRJ-Stecker">MTRJ-Stecker</option>
 	<option value="TOSLINK-Stecker">TOSLINK-Stecker</option>
@@ -346,7 +407,6 @@ var zeitSek = document.getElementById('zeitSek');
     <option value="SC-Stecker<">SC-Stecker</option>
     <option value="E-2000 Stecker">E-2000 Stecker</option>
     <option value="ESCON-Stecker">ESCON-Stecker</option>
-	<option value="MIC(FDDI)-Stecker">MIC(FDDI)-Stecker</option>
 	<option value="C-Stecker">LC-Stecker</option>
 	<option value="MTRJ-Stecker">MTRJ-Stecker</option>
 	<option value="TOSLINK-Stecker">TOSLINK-Stecker</option>
@@ -356,27 +416,192 @@ var zeitSek = document.getElementById('zeitSek');
          style="position:absolute;top:0px;left:0px;width:183px;width:180px\9;#width:180px;height:23px; height:21px\9;#height:18px;border:1px solid #556;"  >
   <input name="idValue" id="idValue6" type="hidden">
   </td>
-    <td>
+
+</table>
+
+	
+	</div>
+  <div class="mdl-card__actions mdl-card--border">
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onClick="btn_aufgabe2_click()">
+      Pr&uuml;fen
+    </a>
+  </div>
+  <div class="mdl-card__menu">
+    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+      <i class="material-icons">share</i>
+    </button>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id=aufgabe2mobil>
+<div class="demo-card-wide mdl-card mdl-shadow--2dp" stlye="position:absolute; right: 10px">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Welcome</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+  <h4> Sicherstellung dass sie kein Bot sind (Bitte Steckertyp ausw&auml;hlen) </h4>
+<table>
+<tr>
+<td><img src="img\1280px-SC-optical-fiber-connector-hdr-0a.jpg" id="loginGif" width=180vw; height=180vw;></td>
+<td><img src="img\ESCON_connector.jpg" " id="loginGif" width=180vw; height=180vw;></td>
+</tr>
+<tr>
+<td>
 <div style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
   <select style="position:absolute;top:0px;left:0px;width:200px; height:25px;line-height:20px;margin:0;padding:0;"
-          onchange="document.getElementById('displayValue7').value=this.options[this.selectedIndex].text; document.getElementById('idValue7').value=this.options[this.selectedIndex].value;">
+          onchange="document.getElementById('displayValue1').value=this.options[this.selectedIndex].text; document.getElementById('idValue1').value=this.options[this.selectedIndex].value;">
     <option></option>
     <option value="SC-Stecker<">SC-Stecker</option>
     <option value="E-2000 Stecker">E-2000 Stecker</option>
     <option value="ESCON-Stecker">ESCON-Stecker</option>
-	<option value="MIC(FDDI)-Stecker">MIC(FDDI)-Stecker</option>
 	<option value="C-Stecker">LC-Stecker</option>
 	<option value="MTRJ-Stecker">MTRJ-Stecker</option>
 	<option value="TOSLINK-Stecker">TOSLINK-Stecker</option>
   </select>
-  <input type="text" name="displayValue7" id="displayValue7" 
+  <input type="text" name="displayValue1" id="displayValue1" 
          placeholder="Typ ausw&auml;hlen" onfocus="this.select()"
          style="position:absolute;top:0px;left:0px;width:183px;width:180px\9;#width:180px;height:23px; height:21px\9;#height:18px;border:1px solid #556;"  >
-  <input name="idValue" id="idValue7" type="hidden">
+  <input name="idValue" id="idValue1" type="hidden">
   </td>
+  <td>
+<div style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
+  <select style="position:absolute;top:0px;left:0px;width:200px; height:25px;line-height:20px;margin:0;padding:0;"
+          onchange="document.getElementById('displayValue2').value=this.options[this.selectedIndex].text; document.getElementById('idValue2').value=this.options[this.selectedIndex].value;">
+    <option></option>
+    <option value="SC-Stecker<">SC-Stecker</option>
+    <option value="E-2000 Stecker">E-2000 Stecker</option>
+    <option value="ESCON-Stecker">ESCON-Stecker</option>
+	<option value="C-Stecker">LC-Stecker</option>
+	<option value="MTRJ-Stecker">MTRJ-Stecker</option>
+	<option value="TOSLINK-Stecker">TOSLINK-Stecker</option>
+  </select>
+  <input type="text" name="displayValue2" id="displayValue2" 
+         placeholder="Typ ausw&auml;hlen" onfocus="this.select()"
+         style="position:absolute;top:0px;left:0px;width:183px;width:180px\9;#width:180px;height:23px; height:21px\9;#height:18px;border:1px solid #556;"  >
+  <input name="idValue" id="idValue2" type="hidden">
+  </td>
+</tr>
+<tr>
+<td><img src="img\Lwl_mtrj.jpg" id="loginGif" width=180vw; height=180vw;></td>
+<td><img src="img\Lwl_e2000.jpg" id="loginGif" width=180vw;height=180vw;></td>
+</tr>
+<tr>
+<td>
+<div style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
+  <select style="position:absolute;top:0px;left:0px;width:200px; height:25px;line-height:20px;margin:0;padding:0;"
+          onchange="document.getElementById('displayValue3').value=this.options[this.selectedIndex].text; document.getElementById('idValue3').value=this.options[this.selectedIndex].value;">
+    <option></option>
+    <option value="SC-Stecker<">SC-Stecker</option>
+    <option value="E-2000 Stecker">E-2000 Stecker</option>
+    <option value="ESCON-Stecker">ESCON-Stecker</option>
+	<option value="C-Stecker">LC-Stecker</option>
+	<option value="MTRJ-Stecker">MTRJ-Stecker</option>
+	<option value="TOSLINK-Stecker">TOSLINK-Stecker</option>
+  </select>
+  <input type="text" name="displayValue3" id="displayValue3" 
+         placeholder="Typ ausw&auml;hlen" onfocus="this.select()"
+         style="position:absolute;top:0px;left:0px;width:183px;width:180px\9;#width:180px;height:23px; height:21px\9;#height:18px;border:1px solid #556;"  >
+  <input name="idValue" id="idValue3" type="hidden">
+  </td>
+  
+<td>
+<div style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
+  <select style="position:absolute;top:0px;left:0px;width:200px; height:25px;line-height:20px;margin:0;padding:0;"
+          onchange="document.getElementById('displayValue4').value=this.options[this.selectedIndex].text; document.getElementById('idValue4').value=this.options[this.selectedIndex].value;">
+    <option></option>
+    <option value="SC-Stecker<">SC-Stecker</option>
+    <option value="E-2000 Stecker">E-2000 Stecker</option>
+    <option value="ESCON-Stecker">ESCON-Stecker</option>
+	<option value="C-Stecker">LC-Stecker</option>
+	<option value="MTRJ-Stecker">MTRJ-Stecker</option>
+	<option value="TOSLINK-Stecker">TOSLINK-Stecker</option>
+  </select>
+  <input type="text" name="displayValue4" id="displayValue4" 
+         placeholder="Typ ausw&auml;hlen" onfocus="this.select()"
+         style="position:absolute;top:0px;left:0px;width:183px;width:180px\9;#width:180px;height:23px; height:21px\9;#height:18px;border:1px solid #556;"  >
+  <input name="idValue" id="idValue4" type="hidden">
+  </td>
+
+</tr>
+<tr>
+<td><img src="img\LWLLCSTECKER.jpg" id="loginGif" width=180vw; height=180vw;></td>
+<td><img src="img\TOSLINK.jpg" id="loginGif" width=180vw; height=180vw;></td>
+</tr>
+<tr>
+
+
+  <td>
+<div style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
+  <select style="position:absolute;top:0px;left:0px;width:200px; height:25px;line-height:20px;margin:0;padding:0;"
+          onchange="document.getElementById('displayValue5').value=this.options[this.selectedIndex].text; document.getElementById('idValue5').value=this.options[this.selectedIndex].value;">
+    <option></option>
+    <option value="SC-Stecker<">SC-Stecker</option>
+    <option value="E-2000 Stecker">E-2000 Stecker</option>
+    <option value="ESCON-Stecker">ESCON-Stecker</option>
+	<option value="C-Stecker">LC-Stecker</option>
+	<option value="MTRJ-Stecker">MTRJ-Stecker</option>
+	<option value="TOSLINK-Stecker">TOSLINK-Stecker</option>
+  </select>
+  <input type="text" name="displayValue5" id="displayValue5" 
+         placeholder="Typ ausw&auml;hlen" onfocus="this.select()"
+         style="position:absolute;top:0px;left:0px;width:183px;width:180px\9;#width:180px;height:23px; height:21px\9;#height:18px;border:1px solid #556;"  >
+  <input name="idValue" id="idValue5" type="hidden">
+  </td>
+  
+  <td>
+<div style="position:relative;width:200px;height:25px;border:0;padding:0;margin:0;">
+  <select style="position:absolute;top:0px;left:0px;width:200px; height:25px;line-height:20px;margin:0;padding:0;"
+          onchange="document.getElementById('displayValue6').value=this.options[this.selectedIndex].text; document.getElementById('idValue6').value=this.options[this.selectedIndex].value;">
+    <option></option>
+    <option value="SC-Stecker<">SC-Stecker</option>
+    <option value="E-2000 Stecker">E-2000 Stecker</option>
+    <option value="ESCON-Stecker">ESCON-Stecker</option>
+	<option value="C-Stecker">LC-Stecker</option>
+	<option value="MTRJ-Stecker">MTRJ-Stecker</option>
+	<option value="TOSLINK-Stecker">TOSLINK-Stecker</option>
+  </select>
+  <input type="text" name="displayValue6" id="displayValue6" 
+         placeholder="Typ ausw&auml;hlen" onfocus="this.select()"
+         style="position:absolute;top:0px;left:0px;width:183px;width:180px\9;#width:180px;height:23px; height:21px\9;#height:18px;border:1px solid #556;"  >
+  <input name="idValue" id="idValue6" type="hidden">
+  </td>
+</tr>
+
+
+
 </table>
 
-	<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="loginButton" onClick="btn_aufgabe2_click()" style="left: 50%;">Testen</button>
+	
+	</div>
+  <div class="mdl-card__actions mdl-card--border">
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onClick="btn_aufgabe2_click()">
+      Pr&uuml;fen
+    </a>
+  </div>
+  <div class="mdl-card__menu">
+    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+      <i class="material-icons">share</i>
+    </button>
+  </div>
+</div>
+</div>
 </div>
 	
 	
